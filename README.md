@@ -5,8 +5,8 @@ Distribution-aware cluster assignment mechanism.
 An example of how the Scaled Sinkhorn-Knopp cluster assignment mechanism can be used is included in 
 [example.py](example.py) and also presented below:
 ```python
-from scaled_sinkhorn_knopp import scaled_sinkhorn_knopp, make_informed_probs, make_linear_sinkhorn_beta, \
-    make_cluster_vec
+from scaled_sinkhorn_knopp import scaled_sinkhorn_knopp, make_informed_probs, \
+    make_linear_sinkhorn_beta, make_cluster_vec
 
 gamma = 4
 bz, k, mu = 256, 10, 0.2
@@ -38,5 +38,7 @@ pseudo_label_soft = scaled_sinkhorn_knopp(prediction_queue, args.lamd, emp_dist)
 
 Experiments can then be performed using the same commands provided in the [SoLar](https://github.com/hbzju/SoLar/) repo, i.e.:
 ```shell
-CUDA_VISIBLE_DEVICES=0 python -u train.py --exp-dir experiment/CIFAR-10   --dataset cifar10 --num-class 10 --partial_rate 0.5 --imb_type exp --imb_ratio 100  --est_epochs 100 --rho_range 0.2,0.6 --gamma 0.1,0.01
+CUDA_VISIBLE_DEVICES=0 python -u train.py --exp-dir experiment/CIFAR-10 \
+  --dataset cifar10 --num-class 10 --partial_rate 0.5 --imb_type exp --imb_ratio 100 \
+  --est_epochs 100 --rho_range 0.2,0.6 --gamma 0.1,0.01
 ```
