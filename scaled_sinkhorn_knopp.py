@@ -5,7 +5,7 @@ import numpy as np
 
 
 @torch.no_grad()
-def scaled_sinkhorn_knopp(x, eta, beta, n_iters=50, cuda=True):
+def scaled_sinkhorn_knopp(x, eta, beta, n_iters=25, cuda=True):
     """
     Given raw cluster prediction probabilities (x), return cluster assignments aligned with beta
     :param x: Raw cluster prediction probabilities. Shape: (N,K)
