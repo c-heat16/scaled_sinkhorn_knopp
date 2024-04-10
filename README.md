@@ -1,5 +1,15 @@
 # Scaled Sinkhorn-Knopp
-Distribution-aware cluster assignment mechanism.
+A distribution-aware cluster assignment mechanism.
+
+Scaled Sinkhorn-Knopp yields more aligned cluster assignments compared to previous distribution-aware cluster 
+assignment mechanisms such as [SoLar](https://github.com/hbzju/SoLar/), particularly in the face of poor, or 
+low-confidence initial cluster predictions. In the figure below, SoLar and our Scaled Sinkhorn-Knopp were used to 
+cluster 500 batches of synthetic predictions of varying quality, denoted by µ, with a batch size of 256, k=24 clusters 
+and imbalance ratio of γ=4. Given a prescribed distribution β = {β0, β1, ..., βk}, a set of synthetic predictions P 
+of shape (N, k) are created such that Nxβi records have probability µ of being assigned to cluster i. As such, larger 
+values of µ denote *stronger* predictions, with µ=-1 used to denote random predictions. 
+
+![Prescribed vs assigned distribution](figures/prescribed_vs_assigned_distribution.png)
 
 ### Example Usage
 An example of how the Scaled Sinkhorn-Knopp cluster assignment mechanism can be used is included in 
